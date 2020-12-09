@@ -41,13 +41,13 @@ function App() {
     contextRef.current = ctx;
   }, []);
 
-  const getTouchPos = (canvasDom, touchEvent) => {
-    var rect = canvasDom.getBoundingClientRect();
-    return {
-      posx: touchEvent.touches[0].clientX - rect.left,
-      posy: touchEvent.touches[0].clientY - rect.top,
-    };
-  };
+  // const getTouchPos = (canvasDom, touchEvent) => {
+  //   var rect = canvasDom.getBoundingClientRect();
+  //   return {
+  //     posx: touchEvent.touches[0].clientX - rect.left,
+  //     posy: touchEvent.touches[0].clientY - rect.top,
+  //   };
+  // };
 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
