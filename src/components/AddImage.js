@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { artsContext } from "../Context";
+import config from "./config";
 
 function AddImage({ canvas, ctx }) {
   const [author, setAuthor] = useState("");
@@ -10,10 +11,25 @@ function AddImage({ canvas, ctx }) {
     e.preventDefault();
     const url = canvas.current.toDataURL("image/png");
     const newArt = { img: url, author: author, description: description };
-    //console.log(newArt);
-    setArts([...arts, newArt]);
+    fetch(`${config.API_ENDPOINT}/`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newArt),
+    })
+      .then((res) => {
+        if (!res.ok) return res.json().then((e) => Promise.reject(e));
+        return res.json();
+      })
+      .then((newArt) => {
+        setArts([...arts, newArt]);
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
     ctx.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    console.log(arts);
+    //console.log(arts);
     setAuthor("");
     setDescription("");
   };
