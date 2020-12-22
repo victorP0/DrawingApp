@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/`, {mode:'no-cors', headers: new Headers({'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb'})})
+      fetch(`${config.API_ENDPOINT}/`, {headers: new Headers({'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb'})})
     ])
       .then(([ArtsRes]) => {
         console.log("There was an attempt")
