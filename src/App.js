@@ -45,6 +45,9 @@ function App() {
         ])
       })
       .then(([arts]) => {
+        //console.log(this);
+        //console.log(this.context);
+        console.log(setArts);
         this.setArts([...arts])
       })
       .catch(error => {
