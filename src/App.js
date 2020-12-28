@@ -5,8 +5,8 @@ import Canvas from "./components/Canvas";
 import UndoButton from "./components/UndoButton";
 import AddImage from "./components/AddImage";
 import Gallery from "./components/Gallery";
-import { ArtsProvider } from "./Context";
-import { artsContext } from "./Context";
+//import { ArtsProvider } from "./Context";
+import { ArtsContext } from "./Context";
 
 // utils
 import { undo } from "./components/handleUndo";
@@ -20,7 +20,7 @@ function App() {
   const contextRef = useRef(null);
 
   //context
-  const [arts, setArts] = useContext(artsContext);
+  const [arts, setArts] = useState([]);
 
   // brush states
   const [color, setColor] = useState("#000000");
@@ -37,6 +37,7 @@ function App() {
     ])
       .then(([ArtsRes]) => {
         console.log("There was an attempt")
+        
         if (!ArtsRes.ok)
           return ArtsRes.json().then(e => Promise.reject(e))
 
@@ -45,10 +46,7 @@ function App() {
         ])
       })
       .then(([arts]) => {
-        //console.log(this);
-        //console.log(this.context);
-        console.log(setArts);
-        this.setArts([...arts])
+        setArts([...arts])
       })
       .catch(error => {
         console.error({ error })
@@ -137,7 +135,7 @@ function App() {
   };
 
   return (
-    <ArtsProvider>
+    <ArtsContext.Provider value={[arts, setArts]}>
       <div>
         <h1>Drawing App </h1>
         <Canvas
@@ -172,7 +170,7 @@ function App() {
           <Gallery />
         </div>
       </div>
-    </ArtsProvider>
+    </ArtsContext.Provider>
   );
 }
 

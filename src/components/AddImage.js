@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { artsContext } from "../Context";
+import { ArtsContext } from "../Context";
 import config from "./config";
 
 function AddImage({ canvas, ctx }) {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
-  const [arts, setArts] = useContext(artsContext);
+  const [arts, setArts] = useContext(ArtsContext);
 
   const saveImage = (e) => {
     e.preventDefault();
@@ -29,7 +29,6 @@ function AddImage({ canvas, ctx }) {
         console.error({ error });
       });
     ctx.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    //console.log(arts);
     setAuthor("");
     setDescription("");
   };
