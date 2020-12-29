@@ -22,6 +22,21 @@ function App() {
   //context
   const [arts, setArts] = useState([]);
 
+  useEffect(() => {
+    fetch(`${config.API_ENDPOINT}/`, { headers: new Headers({ 'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb' }) })
+      .then((ArtsRes) => {
+        console.log("There was an attempt")
+
+        // if (!ArtsRes.ok)
+        //   return ArtsRes.json().then(e => Promise.reject(e))
+
+        return ArtsRes.json()
+      })
+      .then(arts => setArts(arts))
+      .catch(error => console.log(error))
+
+  }, []);
+
   // brush states
   const [color, setColor] = useState("#000000");
   const [isDrawing, setIsDrawing] = useState(false);
@@ -31,27 +46,29 @@ function App() {
   const [path, setPath] = useState([]);
   const [lastPath, setLastPath] = useState([]);
 
-  useEffect(() => {
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/`, {headers: new Headers({'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb'})})
-    ])
-      .then(([ArtsRes]) => {
-        console.log("There was an attempt")
-        
-        if (!ArtsRes.ok)
-          return ArtsRes.json().then(e => Promise.reject(e))
+  console.log("This should run only once");
 
-        return Promise.all([
-          ArtsRes.json(),
-        ])
-      })
-      .then(([arts]) => {
-        setArts([...arts])
-      })
-      .catch(error => {
-        console.error({ error })
-      })
-  });
+  // useEffect(() => {
+  //   Promise.all([
+  //     fetch(`${config.API_ENDPOINT}/`, {headers: new Headers({'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb'})})
+  //   ])
+  //     .then(([ArtsRes]) => {
+  //       console.log("There was an attempt")
+
+  //       if (!ArtsRes.ok)
+  //         return ArtsRes.json().then(e => Promise.reject(e))
+
+  //       return Promise.all([
+  //         ArtsRes.json(),
+  //       ])
+  //     })
+  //     .then(([arts]) => {
+  //       setArts([...arts])
+  //     })
+  //     .catch(error => {
+  //       console.error({ error })
+  //     })
+  // });
 
 
   useEffect(() => {
