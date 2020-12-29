@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Craft from "./Crafts";
-import { artsContext } from "../Context";
+import { ArtsContext } from "../Context";
 
 function Gallery() {
-  const [arts] = useContext(artsContext);
+  const [arts] = useContext(ArtsContext);
 
   // useEffect(() => {
   //   fetch("/gallery")
