@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import config from "./components/config";
 import Colors from "./components/Colors";
 import Canvas from "./components/Canvas";

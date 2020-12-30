@@ -1,5 +1,5 @@
 //import { Children } from "react";
-import React, { useState, createContext } from "react";
+import { createContext } from "react";
 
 export const ArtsContext = createContext({
   arts: [],

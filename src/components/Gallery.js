@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import Craft from "./Crafts";
 import { ArtsContext } from "../Context";
 
 function Gallery() {
-  const [arts, setArts] = useContext(ArtsContext);
+  const [arts] = useContext(ArtsContext);
 
   return (
     <div>
