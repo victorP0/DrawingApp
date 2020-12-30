@@ -1,15 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Craft from "./Crafts";
 import { ArtsContext } from "../Context";
 
 function Gallery() {
-  const [arts] = useContext(ArtsContext);
-
-  // useEffect(() => {
-  //   fetch("/gallery")
-  //     .then((x) => x.json())
-  //     .then((data) => setArts(data));
-  // }, []);
+  const [arts, setArts] = useContext(ArtsContext);
 
   return (
     <div>
@@ -18,7 +12,7 @@ function Gallery() {
           <Craft
             author={art["author"]}
             description={art["description"]}
-            src={art["img"]}
+            src={art["src"]}
             key={art["id"]}
           />
         );

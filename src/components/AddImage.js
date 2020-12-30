@@ -10,16 +10,20 @@ function AddImage({ canvas, ctx }) {
   const saveImage = (e) => {
     e.preventDefault();
     const url = canvas.current.toDataURL("image/png");
-    const newArt = { img: url, author: author, description: description };
+    const newArt = { src: url, author: author, description: description };
     fetch(`${config.API_ENDPOINT}/`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        Authorization: "Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb",
       },
       body: JSON.stringify(newArt),
     })
       .then((res) => {
-        if (!res.ok) return res.json().then((e) => Promise.reject(e));
+        if (!res.ok) {
+          console.log("Server did not accept our image, booo")
+          return res.json().then((e) => Promise.reject(e));
+        }
         return res.json();
       })
       .then((newArt) => {

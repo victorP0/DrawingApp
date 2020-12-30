@@ -23,18 +23,22 @@ function App() {
   const [arts, setArts] = useState([]);
 
   useEffect(() => {
-    fetch(`${config.API_ENDPOINT}/`, { headers: new Headers({ 'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb' }) })
+    fetch(`${config.API_ENDPOINT}/`, {
+      headers: new Headers({
+        Authorization: "Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb",
+      }),
+    })
       .then((ArtsRes) => {
-        console.log("There was an attempt")
+        console.log("There was an attempt");
 
-        // if (!ArtsRes.ok)
-        //   return ArtsRes.json().then(e => Promise.reject(e))
+        if (!ArtsRes.ok) {
+          return ArtsRes.json().then((e) => Promise.reject(e));
+        }
 
-        return ArtsRes.json()
+        return ArtsRes.json();
       })
-      .then(arts => setArts(arts))
-      .catch(error => console.log(error))
-
+      .then((arts) => setArts(arts))
+      .catch((error) => console.log(error));
   }, []);
 
   // brush states
@@ -46,7 +50,6 @@ function App() {
   const [path, setPath] = useState([]);
   const [lastPath, setLastPath] = useState([]);
 
-  console.log("This should run only once");
 
   // useEffect(() => {
   //   Promise.all([
@@ -69,7 +72,6 @@ function App() {
   //       console.error({ error })
   //     })
   // });
-
 
   useEffect(() => {
     const canvas = canvasRef.current;
