@@ -5,7 +5,7 @@ import Canvas from "./components/Canvas";
 import UndoButton from "./components/UndoButton";
 import AddImage from "./components/AddImage";
 import Gallery from "./components/Gallery";
-//import { ArtsProvider } from "./Context";
+import './styles.css';
 import { ArtsContext } from "./Context";
 
 // utils
@@ -51,32 +51,10 @@ function App() {
   const [lastPath, setLastPath] = useState([]);
 
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     fetch(`${config.API_ENDPOINT}/`, {headers: new Headers({'Authorization': 'Bearer b670ad9e-011b-4b6c-ad9d-b857cfb108eb'})})
-  //   ])
-  //     .then(([ArtsRes]) => {
-  //       console.log("There was an attempt")
-
-  //       if (!ArtsRes.ok)
-  //         return ArtsRes.json().then(e => Promise.reject(e))
-
-  //       return Promise.all([
-  //         ArtsRes.json(),
-  //       ])
-  //     })
-  //     .then(([arts]) => {
-  //       setArts([...arts])
-  //     })
-  //     .catch(error => {
-  //       console.error({ error })
-  //     })
-  // });
-
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = 250;
-    canvas.height = 250;
+    canvas.width = 300;
+    canvas.height = 300;
 
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = "white";
