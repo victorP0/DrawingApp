@@ -6,6 +6,7 @@ import UndoButton from "./components/UndoButton";
 import AddImage from "./components/AddImage";
 import Gallery from "./components/Gallery";
 import './styles.css';
+import './components/FontAwesome';
 import { ArtsContext } from "./Context";
 
 // utils
@@ -66,13 +67,13 @@ function App() {
     contextRef.current = ctx;
   }, []);
 
-  // const getTouchPos = (canvasDom, touchEvent) => {
-  //   var rect = canvasDom.getBoundingClientRect();
-  //   return {
-  //     posx: touchEvent.touches[0].clientX - rect.left,
-  //     posy: touchEvent.touches[0].clientY - rect.top,
-  //   };
-  // };
+  const getTouchPos = (canvasDom, touchEvent) => {
+    var rect = canvasDom.getBoundingClientRect();
+    return {
+      posx: touchEvent.touches[0].clientX - rect.left,
+      posy: touchEvent.touches[0].clientY - rect.top,
+    };
+  };
 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
@@ -131,10 +132,41 @@ function App() {
     contextRef.current.stroke();
   };
 
+  const startDrawingMobile = (e) => {
+    const ctx = contextRef.current;
+    const { posx, posy } = getTouchPos(canvasRef.current, e);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = brushSize;
+    // get paths
+    setPath([...path, { x: posx, y: posy, color: color, brushSize: brushSize }]);
+    setLastPath([{ x: posx, y: posy, color: color, brushSize: brushSize }]);
+    ctx.beginPath();
+    ctx.moveTo(posx, posy);
+    setIsDrawing(true);
+  };
+
+  const drawMobile = (e) => {
+    if (!isDrawing) {
+      return;
+    }
+    const ctx = contextRef.current;
+    const { posx, posy } = getTouchPos(canvasRef.current, e);
+
+    ctx.lineTo(posx, posy);
+    ctx.stroke();
+
+    setLastPath([
+      ...lastPath,
+      { x: posx, y: posy, color: color, brushSize: brushSize },
+    ]);
+    setPath([...path, { x: posx, y: posy, color: color, brushSize: brushSize }]);
+  };
+
   return (
     <ArtsContext.Provider value={[arts, setArts]}>
-      <div>
-        <h1>Drawing App </h1>
+      <div className="main">
+      <h1>Drawing App </h1>
+      <div className="paint">
         <Canvas
           startDrawing={startDrawing}
           draw={draw}
@@ -159,11 +191,10 @@ function App() {
           <BrushText brushSize={brushSize} />
           <IncreaseBrush brushSize={brushSize} setBrushSize={setBrushSize} />
           <DecreaseBrush brushSize={brushSize} setBrushSize={setBrushSize} />
-        </div>
-        <div>
           <AddImage canvas={canvasRef} color={color} ctx={contextRef} />
         </div>
-        <div>
+        </div>
+        <div className="gallery">
           <Gallery />
         </div>
       </div>

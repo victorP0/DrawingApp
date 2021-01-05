@@ -1,9 +1,10 @@
 import React from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function Colors({ color, setColor }) {
   return (
     <div className="colorpick">
-      <i className="fas fa-palette"></i>
+      <FontAwesomeIcon icon="palette"/>
       <input
         type="color"
         value={color}

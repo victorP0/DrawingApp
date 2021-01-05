@@ -1,4 +1,5 @@
 import React from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function Crafts({ author, description, src }) {
   return (
@@ -7,10 +8,10 @@ function Crafts({ author, description, src }) {
       <small>
         <p>Made by</p>
         <p>
-          <i className="fas fa-user"></i>
+          <FontAwesomeIcon icon="user"/>
           <b>{author}</b>
-          <b>{description}</b>
         </p>
+        <p className="description">{description}</p>
       </small>
     </div>
   );

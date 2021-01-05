@@ -1,4 +1,5 @@
 import React from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function IncreaseBrush({ brushSize, setBrushSize }) {
   return (
@@ -6,8 +7,7 @@ function IncreaseBrush({ brushSize, setBrushSize }) {
       onClick={() => brushSize < 15 && setBrushSize(brushSize + 5)}
       className="add"
     >
-      <i className="fas fa-plus-square fa-2x"></i>
-      Increase
+      <FontAwesomeIcon icon="plus-square" size="lg"/>
     </button>
   );
 }
