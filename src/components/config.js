@@ -4,4 +4,3 @@ export default {
     //API_KEY: `b670ad9e-011b-4b6c-ad9d-b857cfb108eb`,
     API_KEY: process.env.REACT_APP_API_KEY,
   }
-

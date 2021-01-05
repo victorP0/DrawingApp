@@ -10,8 +10,8 @@ function AddImage({ canvas, ctx }) {
   const saveImage = (e) => {
     e.preventDefault();
     const url = canvas.current.toDataURL("image/jpeg");
-    const dateAdded = Date.now()
-    const newArt = { src: url, author: author, description: description, dateAdded };
+    const dateadded = Date.now()
+    const newArt = { src: url, author: author, description: description, dateadded };
     fetch(`${config.API_ENDPOINT}/`, {
       method: "POST",
       headers: {
