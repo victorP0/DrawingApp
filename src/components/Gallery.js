@@ -6,7 +6,7 @@ function Gallery() {
   const [arts] = useContext(ArtsContext);
 
   return (
-    <div>
+    <div className="gallery-container" >
       {arts.map((art) => {
         return (
           <Craft
