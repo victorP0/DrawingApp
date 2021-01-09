@@ -11,6 +11,7 @@ body {
   background-size: 400% 400%;
   position: relative;
   animation: bgchange 10s infinite ease-in-out;
+<<<<<<< HEAD
 }
 
 @keyframes bgchange {
@@ -25,6 +26,22 @@ body {
   }
 }
 
+=======
+}
+
+@keyframes bgchange {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+>>>>>>> 5e64ce513cc8557f4ce49c0a5478307f44a07cd3
 
 .fa-user {
   margin-right: 0.35rem;
