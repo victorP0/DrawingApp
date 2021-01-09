@@ -1,6 +1,9 @@
 ## Drawing App
 
 Link to App demo(https://drawingapp.vercel.app/)
+This is the frontend for the Drawing App. 
+
+The backend can be found at https://github.com/victorP0/DrawingApp_api.
 
 ## API Documentation
 
