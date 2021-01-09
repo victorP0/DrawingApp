@@ -8,7 +8,7 @@ The App uses the canvas API (https://developer.mozilla.org/en-US/docs/Web/API/Ca
 
 ## Screenshots
 
-[]!(images/DrawingAppScreenshot.png)
+![](images/DrawingAppScreenshot.png)
 
 ## Description
 
