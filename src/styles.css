@@ -2,13 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Georgia", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 html,
 body {
   overflow-x: hidden;
-  background-color: #f1efef;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  position: relative;
+  animation: bgchange 10s infinite ease-in-out;
 }
+
+@keyframes bgchange {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
 
 .fa-user {
   margin-right: 0.35rem;
@@ -24,10 +40,10 @@ body {
 
 h1 {
   letter-spacing: 3px;
-  color:black;
+  color:whitesmoke;
   font-size: 3rem;
   margin: 1rem 1rem;
-  font-family: 'Courier New', sans-serif;
+  font-family: 'Pacifico', sans-serif;
   text-align: right;
 }
 .logo {
@@ -42,7 +58,7 @@ form button {
   border: none;
   outline: none;
   background-color: grey;
-  padding: 0.4rem;
+  padding: 0.8rem;
   border-radius: 3px;
   color: white;
   transition: 0.35s;
@@ -50,14 +66,14 @@ form button {
 
 form button:hover {
   cursor: pointer;
-  background-color: black;
+  background-color: lightgrey;
 }
 
 #canv {
   touch-action: none;
   margin-left: 0.5rem;
   cursor: crosshair;
-  border: 4px solid grey;
+  border: 4px solid lightgrey;
 }
 
 .paint {
@@ -93,6 +109,8 @@ input[type='color'] {
 
 button{
   padding: 0.1rem 0.2rem ;
+  background-color:transparent;
+
 }
 
 form {
@@ -102,14 +120,13 @@ form {
 }
 
 input[type='text'] {
-  background-color: #f1efef;
   margin: .5rem 1rem;
   position: relative;
   width: 120px;
   height: 38px;
   border: 0;
   outline: 0;
-  border-bottom: 3px solid #b3b3b3;
+  border-bottom: 3px solid white;
   font-size: .7rem;
   border-radius: 3px;
   box-shadow: none;
@@ -121,6 +138,7 @@ input[type='text'] {
 input[type='text']:focus {
   width: 200px;
   border-color: #aa9aba;
+
 }
 
 #root > div:nth-child(2) {
@@ -141,18 +159,28 @@ input[type='text']:focus {
   border: 0;
 }
 
+.gallery-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.gallery{
+}
+
 .gallery-item {
   margin: 0.2rem;
-  padding: 3rem;
+  padding: 2rem;
   color: white;
-  background-color: rgb(52, 52, 52);
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .gallery-item img {
   margin: 0.5rem 1rem;
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 small {
