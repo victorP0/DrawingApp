@@ -46,7 +46,7 @@ function AddImage({ canvas, ctx }) {
         onChange={(e) => setAuthor(e.target.value)}
         minLength="3"
         maxLength="10"
-        placeholder="Author"
+        placeholder=" Author"
         required
       />
       <input
@@ -55,7 +55,7 @@ function AddImage({ canvas, ctx }) {
         onChange={(e) => setDescription(e.target.value)}
         minLength="3"
         maxLength="140"
-        placeholder="Description (optional)"
+        placeholder=" Description (optional)"
       />
       <button type="submit" value="Submit">
         <i className="fas fa-plus-square"></i> Add to Gallery
