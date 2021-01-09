@@ -19,4 +19,4 @@ This a drawing app that allows Users to draw and save their drawings to the gall
 
 ## Technologies used
 
-Javascript, HTML css, express, mocha, chai, pSQL
+Javascript, React App, HTML css, express, mocha, chai, pSQL
