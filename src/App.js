@@ -191,8 +191,10 @@ function App() {
           <BrushText brushSize={brushSize} />
           <IncreaseBrush brushSize={brushSize} setBrushSize={setBrushSize} />
           <DecreaseBrush brushSize={brushSize} setBrushSize={setBrushSize} />
-          <AddImage canvas={canvasRef} color={color} ctx={contextRef} />
         </div>
+        </div>
+        <div className="add-gallery">
+          <AddImage canvas={canvasRef} color={color} ctx={contextRef} />
         </div>
         <div className="gallery">
           <Gallery />

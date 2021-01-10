@@ -11,6 +11,7 @@ function Canvas({
   return (
     <canvas
       id="canv"
+      label = "canv"
       onMouseDown={startDrawing}
       onMouseMove={draw}
       onMouseUp={endDrawing}

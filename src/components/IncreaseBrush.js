@@ -6,6 +6,7 @@ function IncreaseBrush({ brushSize, setBrushSize }) {
     <button
       onClick={() => brushSize < 15 && setBrushSize(brushSize + 5)}
       className="add"
+      label = "increaseBrush"
     >
       <FontAwesomeIcon icon="plus-square" size="lg"/>
     </button>

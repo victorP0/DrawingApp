@@ -42,6 +42,7 @@ function AddImage({ canvas, ctx }) {
     <form onSubmit={saveImage}>
       <input
         type="text"
+        label = "Author"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
         minLength="3"
@@ -51,13 +52,14 @@ function AddImage({ canvas, ctx }) {
       />
       <input
         type="text"
+        label = "description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         minLength="3"
         maxLength="140"
         placeholder=" Description (optional)"
       />
-      <button type="submit" value="Submit">
+      <button type="submit" value="Submit" label = "addToGallery">
         <i className="fas fa-plus-square"></i> Add to Gallery
       </button>
     </form>

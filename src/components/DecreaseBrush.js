@@ -6,8 +6,8 @@ function DecreaseBrush({ brushSize, setBrushSize }) {
     <button
       onClick={() => brushSize > 5 && setBrushSize(brushSize - 5)}
       className="minus"
+      label = "decreaseBrush"
     >
-      {/* <i className="fas fa-minus-square fa-2x"></i> */}
       <FontAwesomeIcon icon="minus-square" size="lg"/>
     </button>
   );
