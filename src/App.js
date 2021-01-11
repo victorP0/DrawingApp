@@ -65,6 +65,7 @@ function App() {
     ctx.strokeStyle = "black";
     ctx.lineWidth = 5;
     contextRef.current = ctx;
+    
   }, []);
 
   const getTouchPos = (canvasDom, touchEvent) => {

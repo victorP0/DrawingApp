@@ -6,7 +6,6 @@ function AddImage({ canvas, ctx }) {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [arts, setArts] = useContext(ArtsContext);
-
   const saveImage = (e) => {
     e.preventDefault();
     const url = canvas.current.toDataURL("image/jpeg");
