@@ -23,6 +23,8 @@ function App() {
   //context
   const [arts, setArts] = useState([]);
 
+  //Instruction modal
+
   useEffect(() => {
     fetch(`${config.API_ENDPOINT}/`, {
       headers: new Headers({
@@ -167,6 +169,7 @@ function App() {
     <ArtsContext.Provider value={[arts, setArts]}>
       <div className="main">
       <h1>Drawing App </h1>
+      <h2>This is a drawing app that allows you to draw and add your art to the online gallery. The gallery will display drawings added in the last 7 days! </h2>
       <div className="paint">
         <Canvas
             startDrawing={startDrawing}
