@@ -169,10 +169,12 @@ function App() {
       <h1>Drawing App </h1>
       <div className="paint">
         <Canvas
-          startDrawing={startDrawing}
-          draw={draw}
-          endDrawing={endDrawingBoth}
-          canvasRef={canvasRef}
+            startDrawing={startDrawing}
+            draw={draw}
+            endDrawing={endDrawingBoth}
+            startDrawingMobile={startDrawingMobile}
+            drawMobile={drawMobile}
+            canvasRef={canvasRef}
         />
         <div>
           <Colors color={color} setColor={setColor} context={contextRef} />
@@ -195,7 +197,7 @@ function App() {
         </div>
         </div>
         <div className="add-gallery">
-          <AddImage canvas={canvasRef} color={color} ctx={contextRef} />
+          <AddImage canvas={canvasRef} color={color} ctx={contextRef} setLastPath ={setLastPath} setPath ={setPath} />
         </div>
         <div className="gallery">
           <Gallery />

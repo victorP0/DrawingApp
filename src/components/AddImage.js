@@ -2,10 +2,11 @@ import React, { useState, useContext } from "react";
 import { ArtsContext } from "../Context";
 import config from "./config";
 
-function AddImage({ canvas, ctx }) {
+function AddImage({ canvas, ctx, setLastPath, setPath }) {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [arts, setArts] = useContext(ArtsContext);
+
   const saveImage = (e) => {
     e.preventDefault();
     const url = canvas.current.toDataURL("image/jpeg");
@@ -33,6 +34,10 @@ function AddImage({ canvas, ctx }) {
         console.error({ error });
       });
     ctx.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
+    ctx.current.fillStyle = "white";
+    ctx.current.fillRect(0, 0, canvas.current.width, canvas.current.height);
+    setPath([]);
+    setLastPath([]);
     setAuthor("");
     setDescription("");
   };

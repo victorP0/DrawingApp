@@ -5,8 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // make the component available
-import BrushText from '../components/BrushText';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Colors from '../components/Colors';
 
 // this is the test case
 it('renders without crashing', () => {
@@ -14,7 +13,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
 
   // render the component, this is the actual test, if something is wrong it will fail here
-  ReactDOM.render(<BrushText brushSize={1}/>, div);
+  ReactDOM.render(<Colors />, div);
 
   // clean up code
   ReactDOM.unmountComponentAtNode(div);
